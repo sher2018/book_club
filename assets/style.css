@@ -13,7 +13,7 @@
   --soft:#efe7da;
   --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
 body{
   background:var(--paper);
@@ -21,6 +21,7 @@ body{
   font-family:var(--serif);
   font-size:16px;
   line-height:1.9;
+  overflow-wrap:break-word;
 }
 a{color:var(--accent)}
 img{max-width:100%}
@@ -113,7 +114,7 @@ figure.curves figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line
 }
 
 /* ================= 总入口 presentation.html ================= */
-.entry{min-height:100vh;display:flex;flex-direction:column}
+.entry{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .entry-head{
   background:var(--ink);color:#efe7da;
   padding:14px 22px;
@@ -134,13 +135,54 @@ figure.curves figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line
 }
 .tab:hover{color:var(--ink)}
 .tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:700;background:var(--card)}
-.frame{flex:1;width:100%;border:none;background:#fff}
+.frame{flex:1;min-height:0;width:100%;border:none;background:#fff}
 
-@media (max-width:640px){
-  .page{padding:24px 16px 48px}
-  .page-head h1{font-size:24px}
-  figure.right,.name-card{float:none;width:100%;margin:14px 0}
-  .entry-head .s{display:none}
+/* ================= 移动端（H5）适配 ================= */
+@media (max-width:768px){
+  body{font-size:15px;line-height:1.85}
+  .page{padding:20px 14px 44px}
+
+  .page-head{padding-bottom:14px}
+  .page-head h1{font-size:22px;letter-spacing:.5px}
+  .page-head .subtitle{font-size:13px}
+  .crumb{font-size:12.5px}
+
+  .chapter{margin-top:34px}
+  .chapter>h2{font-size:19px;margin-bottom:14px}
+  .chapter>h2 .no{font-size:13px;margin-right:6px;letter-spacing:1px}
+  h3{font-size:16px}
+  ul,ol{padding-left:20px}
+
+  blockquote{padding:10px 12px;font-size:14px;margin:14px 0}
+  blockquote .src{font-size:12px}
+  .essence{padding:10px 12px;font-size:14px}
+  .gold{font-size:16px;line-height:1.9;margin:18px auto}
+
+  /* 表格：小屏改为横向滚动，避免撑破版面 */
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th,td{padding:6px 8px;font-size:13.5px}
+
+  figure.right,.name-card{float:none;width:100%;max-width:420px;margin:12px auto}
+
+  .chips{font-size:12.5px}
+  .chips a{padding:5px 12px;margin:4px 6px 0 0}
+
+  .page-foot{margin-top:44px;font-size:12px}
+
+  /* 总入口：紧凑头部 + 可横滑标签栏（隐藏滚动条、加大触控区） */
+  .entry-head{flex-direction:column;align-items:flex-start;gap:2px;padding:10px 14px}
+  .entry-head .t{font-size:16.5px;letter-spacing:1px}
+  .entry-head .s{font-size:11.5px}
+  .tabs{scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{font-size:14px;padding:10px 13px;flex:0 0 auto}
+}
+/* 超小屏（≤380px）再收一档 */
+@media (max-width:380px){
+  .page{padding:16px 11px 40px}
+  .page-head h1{font-size:20px}
+  .entry-head .t{font-size:15.5px}
+  .tab{padding:9px 10px;font-size:13.5px}
 }
 @media print{
   .tabs,.crumb{display:none}

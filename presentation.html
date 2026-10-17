@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f2a24">
 <title>《反脆弱》读书会 · 演示讲稿总入口</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -37,6 +38,7 @@
     for(i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('data-key')===key){ t=tabs[i]; break; } }
     if(!t){ t = tabs[0]; key = t.getAttribute('data-key'); }
     for(i=0;i<tabs.length;i++){ tabs[i].classList.toggle('on', tabs[i]===t); }
+    if(t.scrollIntoView){ try{ t.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'}); }catch(e){} }
     var src = t.getAttribute('data-src');
     if(frame.getAttribute('data-cur')!==src){
       frame.setAttribute('data-cur', src);
