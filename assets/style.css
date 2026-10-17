@@ -1,0 +1,147 @@
+/* ============================================================
+   《反脆弱》读书会讲稿 · 共享样式
+   适配：html/presentation.html（总入口）与 html/part/*.html（九个标签页）
+   ============================================================ */
+:root{
+  --paper:#f7f3ec;
+  --card:#fffdf9;
+  --ink:#2f2a24;
+  --muted:#7a7166;
+  --accent:#8a3324;
+  --gold:#a0771f;
+  --line:#e5dccd;
+  --soft:#efe7da;
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:16px;
+  line-height:1.9;
+}
+a{color:var(--accent)}
+img{max-width:100%}
+
+/* ---------------- 页面骨架 ---------------- */
+.page{max-width:920px;margin:0 auto;padding:34px 26px 60px}
+
+.page-head{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:6px}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:10px}
+.crumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.crumb a:hover{color:var(--accent);border-color:var(--accent)}
+.page-head h1{font-size:30px;font-weight:700;letter-spacing:1px;line-height:1.5}
+.page-head .subtitle{color:var(--muted);font-size:15px;margin-top:6px}
+
+/* ---------------- 章节排版 ---------------- */
+.chapter{margin-top:46px;clear:both}
+.chapter>h2{
+  font-size:22px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:8px;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+.chapter>h2 .no{color:var(--accent);margin-right:10px;font-size:15px;letter-spacing:2px}
+h3{font-size:17.5px;margin:26px 0 10px;color:#5a3d2e}
+h4{font-size:16px;margin:18px 0 8px;color:#5a3d2e}
+p{margin:10px 0}
+ul,ol{margin:10px 0 10px 4px;padding-left:22px}
+li{margin:6px 0}
+li::marker{color:var(--accent)}
+strong{color:#40260f}
+em{font-style:italic}
+
+.meta{font-size:13px;color:var(--muted)}
+.note{
+  font-size:13.5px;color:var(--muted);
+  margin-top:16px;border-top:1px dashed var(--line);padding-top:10px;
+}
+
+/* 原著引文（繁体） */
+blockquote{
+  margin:16px 0;padding:12px 18px;
+  background:var(--soft);
+  border-left:3px solid var(--accent);
+  border-radius:0 4px 4px 0;
+  font-size:15.5px;
+}
+blockquote p{margin:6px 0}
+blockquote .src{display:block;text-align:right;font-size:13px;color:var(--muted);margin-top:6px}
+
+/* 本质 / 金句 */
+.essence{margin:16px 0;padding:10px 16px;background:#f3ead9;border-left:4px double var(--gold)}
+.gold{margin:22px auto;text-align:center;font-size:17.5px;color:var(--accent);max-width:36em;line-height:2}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;line-height:1.75}
+th{background:var(--soft);font-weight:700}
+tbody tr:nth-child(even){background:#faf6ee}
+
+/* 人物图（仅楔子页使用） */
+figure.right{float:right;width:250px;margin:6px 0 14px 22px}
+figure.right img{width:100%;display:block;border:1px solid var(--line);background:#fff;padding:4px}
+figure.right figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.6}
+figure.curves{clear:both;margin:18px 0 22px;padding:16px 12px 8px;border:1px solid var(--line);background:#fbf8f1;text-align:center}
+figure.curves svg{width:100%;height:auto;display:block}
+figure.curves figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6;text-align:center}
+.name-card{
+  float:right;width:220px;margin:6px 0 14px 22px;
+  border:1px dashed var(--gold);background:#faf5e9;
+  padding:20px 12px;text-align:center;
+}
+.name-card .init{font-size:34px;color:var(--gold);font-family:Georgia,serif;line-height:1.2}
+.name-card .who{margin-top:6px;font-size:14px}
+.name-card .why{font-size:12px;color:var(--muted);margin-top:4px}
+.clear{clear:both}
+
+/* 页内小导航（讲次/章节跳转） */
+.chips{margin:14px 0 0;font-size:13px}
+.chips a{
+  display:inline-block;margin:4px 8px 0 0;padding:3px 12px;
+  border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;color:var(--muted);background:var(--card);
+}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+
+.page-foot{
+  margin-top:60px;border-top:1px solid var(--line);padding-top:14px;
+  font-size:12.5px;color:var(--muted);text-align:center;
+}
+
+/* ================= 总入口 presentation.html ================= */
+.entry{min-height:100vh;display:flex;flex-direction:column}
+.entry-head{
+  background:var(--ink);color:#efe7da;
+  padding:14px 22px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+}
+.entry-head .t{font-size:19px;letter-spacing:2px}
+.entry-head .s{font-size:13px;color:#c9bfae}
+.tabs{
+  display:flex;overflow-x:auto;white-space:nowrap;
+  background:var(--paper);border-bottom:2px solid var(--ink);
+  position:sticky;top:0;z-index:9;
+}
+.tab{
+  font-family:var(--serif);font-size:15px;
+  padding:11px 18px;border:none;background:none;
+  color:var(--muted);cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-2px;
+}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:700;background:var(--card)}
+.frame{flex:1;width:100%;border:none;background:#fff}
+
+@media (max-width:640px){
+  .page{padding:24px 16px 48px}
+  .page-head h1{font-size:24px}
+  figure.right,.name-card{float:none;width:100%;margin:14px 0}
+  .entry-head .s{display:none}
+}
+@media print{
+  .tabs,.crumb{display:none}
+}

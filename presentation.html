@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《反脆弱》读书会 · 演示讲稿总入口</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="entry">
+
+<header class="entry-head">
+  <div class="t">《反脆弱》读书会 · 演示讲稿</div>
+  <div class="s">纳西姆·尼古拉斯·塔勒布 著 · 从不确定性中获益 · 九个标签页</div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab" data-key="xiezi"  data-src="part/prologue.html"  title="楔子 · 开场三讲">楔子</button>
+  <button class="tab" data-key="b1" data-src="part/book1.html" title="第一卷 · 反脆弱性：导论（第 1–4 章）">第一卷</button>
+  <button class="tab" data-key="b2" data-src="part/book2.html" title="第二卷 · 现代性与对反脆弱性的否定（第 5–8 章）">第二卷</button>
+  <button class="tab" data-key="b3" data-src="part/book3.html" title="第三卷 · 非预测性的世界观（第 9–11 章）">第三卷</button>
+  <button class="tab" data-key="b4" data-src="part/book4.html" title="第四卷 · 可选择性、技术与反脆弱性的智慧（第 12–17 章）">第四卷</button>
+  <button class="tab" data-key="b5" data-src="part/book5.html" title="第五卷 · 非线性与非线性（第 18–19 章）">第五卷</button>
+  <button class="tab" data-key="b6" data-src="part/book6.html" title="第六卷 · 否定法（第 20–22 章）">第六卷</button>
+  <button class="tab" data-key="b7" data-src="part/book7.html" title="第七卷 · 脆弱性与反脆弱性的伦理（第 23–25 章）">第七卷</button>
+  <button class="tab" data-key="after" data-src="part/afterword.html" title="后记 · 杠铃策略亲测 / MBTI 呼应 / AI 决策工具">后记</button>
+</nav>
+
+<iframe class="frame" id="frame" src="part/prologue.html" title="讲稿内容"></iframe>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var frame = document.getElementById('frame');
+
+  function show(key){
+    var t = null, i;
+    for(i=0;i<tabs.length;i++){ if(tabs[i].getAttribute('data-key')===key){ t=tabs[i]; break; } }
+    if(!t){ t = tabs[0]; key = t.getAttribute('data-key'); }
+    for(i=0;i<tabs.length;i++){ tabs[i].classList.toggle('on', tabs[i]===t); }
+    var src = t.getAttribute('data-src');
+    if(frame.getAttribute('data-cur')!==src){
+      frame.setAttribute('data-cur', src);
+      frame.src = src;
+    }
+    if(history.replaceState){ history.replaceState(null,'','#'+key); }
+  }
+
+  tabs.forEach(function(b){
+    b.addEventListener('click', function(){ show(b.getAttribute('data-key')); });
+  });
+  window.addEventListener('hashchange', function(){
+    show((location.hash||'').replace('#',''));
+  });
+  show((location.hash||'').replace('#',''));
+})();
+</script>
+
+</body>
+</html>
