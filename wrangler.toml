@@ -1,0 +1,7 @@
+# Cloudflare Workers 静态站点配置
+name = "bookclub"
+compatibility_date = "2026-10-17"
+
+[assets]
+# 静态文件目录：指向仓库根目录（包含 presentation.html / part / assets / res）
+directory = "."
