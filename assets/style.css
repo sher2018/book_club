@@ -113,6 +113,26 @@ figure.curves figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line
   font-size:12.5px;color:var(--muted);text-align:center;
 }
 
+/* ---------------- 打赏 / 支持区 ---------------- */
+.tip{
+  margin-top:50px;padding:28px 22px;
+  border:1px solid var(--line);border-radius:12px;
+  background:var(--card);text-align:center;
+}
+.tip h2{
+  font-size:21px;color:var(--accent);
+  border:none;padding:0;margin-bottom:10px;
+}
+.tip > p{font-size:14.5px;color:var(--muted);max-width:30em;margin:0 auto;line-height:1.8}
+.tip .qr{
+  margin:18px auto 8px;padding:12px;
+  width:220px;max-width:62vw;
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+}
+.tip .qr img{width:100%;display:block}
+.tip .qr figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+.tip .tip-ps{margin-top:12px;font-size:13px;color:var(--gold)}
+
 /* ================= 总入口 presentation.html ================= */
 .entry{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .entry-head{
